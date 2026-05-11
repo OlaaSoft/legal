@@ -35,56 +35,64 @@
 <body>
   <div class="container">
     <h1>Privacy Policy</h1>
-    <p class="subtitle"><strong>App Name:</strong> AdMob Pulse<br><strong>Developer / Company:</strong> OlaaSoft<br><strong>Effective Date:</strong> May 5, 2026</p>
+    <p class="subtitle"><strong>App Name:</strong> AdMob Pulse<br><strong>Developer / Company:</strong> OlaaSoft<br><strong>Effective Date:</strong> May 11, 2026</p>
 
-    <p>This Privacy Policy explains how OlaaSoft handles your information when you use the mobile application AdMob Pulse. By using the App, you agree to this Privacy Policy.</p>
+    <p>This Privacy Policy explains what information AdMob Pulse ("the App") collects, how it is used, and your choices. By using the App you agree to this Privacy Policy.</p>
 
-    <h2>1. Data Collection and Storage</h2>
-    <p>We <strong>do not collect, store, or process any personal data on our servers</strong>. AdMob Pulse is a viewer for your own Google AdMob account — all earnings and statistics you see in the App are fetched directly from Google's AdMob API to your device.</p>
+    <h2>1. Data We Collect</h2>
+    <p>AdMob Pulse itself does not host a backend that stores your AdMob earnings. All earnings, eCPM, and breakdown data shown in the dashboard are fetched directly from Google's AdMob API to your device and cached locally for offline reading. However, the App embeds well-known third-party SDKs that collect a limited amount of data necessary to deliver ads, measure crashes, and improve the product. Specifically:</p>
     <ul>
-      <li>App preferences (theme, currency, selected account) are stored <strong>locally on your device</strong> only.</li>
-      <li>AdMob API responses (earnings, impressions, eCPM) are <strong>cached locally on your device</strong> for offline reading and to reduce repeat API calls.</li>
-      <li>We <strong>do not store your AdMob data, earnings, or account information on our servers</strong>.</li>
+      <li><strong>Name and email address</strong> — Provided by Google when you sign in. Used on-device to identify which AdMob account is being viewed; also processed by Google as the identity provider. Linked to your identity. Not used for tracking.</li>
+      <li><strong>User ID</strong> — A Google account identifier returned by Google Sign-In. Linked to your identity. Used to authenticate AdMob API requests on your device. Not used for tracking.</li>
+      <li><strong>Device ID (advertising identifier / IDFA)</strong> — Collected by the Google Mobile Ads SDK to render ads. Linked to your identity. <strong>Used for tracking</strong> when you grant App Tracking Transparency permission on iOS.</li>
+      <li><strong>Product interaction events</strong> — Anonymized usage analytics (screens opened, taps, period switches) collected by Mixpanel and Firebase Analytics. Linked to your identity. Not used for tracking.</li>
+      <li><strong>Advertising data</strong> — Information about which ads were served and basic engagement, collected by the Google Mobile Ads SDK. Not linked to your identity. <strong>Used for tracking</strong> (ad measurement and personalization).</li>
+      <li><strong>Crash data</strong> — Stack traces, device model, OS version, and minimal diagnostic information collected by Firebase Crashlytics and Sentry. Not linked to your identity. Not used for tracking.</li>
     </ul>
 
     <h2>2. Google Sign-In and AdMob API Access</h2>
     <p>To show your AdMob earnings, AdMob Pulse uses Google Sign-In and requests <strong>read-only</strong> access to your AdMob account through the Google AdMob API:</p>
     <ul>
       <li><strong>Scope requested:</strong> <code>https://www.googleapis.com/auth/admob.readonly</code> — view AdMob reports and configuration only. The App cannot create, modify, or delete anything in your AdMob account.</li>
-      <li>Your Google account email is used <strong>only on your device</strong> to identify which AdMob account you are viewing. It is never sent to our servers.</li>
       <li>OAuth tokens are stored in the iOS Keychain / Android Keystore on your device. You can revoke access at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
+      <li>Your AdMob earnings and statistics are <strong>not transmitted to OlaaSoft servers</strong>. They flow directly from Google's AdMob API to your device and are cached locally.</li>
     </ul>
 
-    <h2>3. In-App Purchases and Subscriptions</h2>
-    <p>AdMob Pulse offers optional auto-renewable subscriptions (weekly, yearly) and a one-time lifetime purchase. All transactions are processed by Apple (App Store) or Google (Play Store). We do not collect or store any payment information.</p>
+    <h2>3. App Tracking Transparency (iOS)</h2>
+    <p>On iOS, the App presents the standard <strong>App Tracking Transparency</strong> prompt before the Google Mobile Ads SDK is initialized. Choosing "Ask App Not to Track" disables personalised advertising and the IDFA — the App's core functionality (viewing your AdMob stats) works identically with or without tracking permission. You can change this choice at any time in <em>Settings → Privacy &amp; Security → Tracking</em>.</p>
 
-    <h2>4. Third-Party Services</h2>
-    <p>We use the following third-party services:</p>
+    <h2>4. Advertising</h2>
+    <p>AdMob Pulse displays banner and interstitial advertisements served by the Google Mobile Ads SDK. Google's use of advertising data is governed by Google's own policies; see <a href="https://policies.google.com/technologies/ads">Google Ads &amp; Privacy</a>. The App contains no third-party ad networks other than Google Mobile Ads.</p>
+
+    <h2>5. Third-Party Services</h2>
+    <p>The App uses the following third-party services. Each link goes to that vendor's own privacy notice:</p>
     <ul>
-      <li><strong>Google AdMob API (Google LLC):</strong> Used to fetch <em>your</em> AdMob earnings and statistics on your behalf. Read-only access. Subject to <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
-      <li><strong>Firebase Crashlytics &amp; Analytics (Google LLC):</strong> Used to track crashes and aggregate, anonymous usage patterns. No personal data, AdMob data, or account information is transmitted.</li>
-      <li><strong>Firebase Cloud Messaging (Google LLC):</strong> Used to deliver optional daily earnings summary push notifications.</li>
-      <li><strong>Mixpanel:</strong> Used for anonymized product analytics to improve the app experience. No AdMob data is sent.</li>
-      <li><strong>Sentry:</strong> Used for error tracking and crash reporting.</li>
-      <li><strong>Adapty:</strong> Used for in-app subscription management only.</li>
+      <li><strong>Google AdMob API</strong> (Google LLC) — Fetches your own AdMob earnings on your behalf. Read-only. <a href="https://policies.google.com/privacy">Privacy</a>.</li>
+      <li><strong>Google Mobile Ads SDK</strong> (Google LLC) — Renders the banner and interstitial ads shown inside the App. <a href="https://policies.google.com/technologies/ads">Ads &amp; Privacy</a>.</li>
+      <li><strong>Google Sign-In</strong> (Google LLC) — Authentication for AdMob API access. <a href="https://policies.google.com/privacy">Privacy</a>.</li>
+      <li><strong>Firebase Analytics &amp; Crashlytics</strong> (Google LLC) — Anonymous usage analytics and crash reporting. <a href="https://firebase.google.com/support/privacy">Privacy</a>.</li>
+      <li><strong>Firebase Cloud Messaging</strong> (Google LLC) — Used only for the optional notification token; no marketing pushes are sent.</li>
+      <li><strong>Firebase Remote Config</strong> (Google LLC) — Used to control the force-update banner and feature flags. No personal data sent.</li>
+      <li><strong>Mixpanel</strong> — Anonymized product analytics to improve the app experience. <a href="https://mixpanel.com/legal/privacy-policy/">Privacy</a>.</li>
+      <li><strong>Sentry</strong> — Crash and error tracking. <a href="https://sentry.io/privacy/">Privacy</a>.</li>
     </ul>
 
-    <h2>5. Notifications</h2>
-    <p>If you opt in, AdMob Pulse may send daily local notifications summarizing your latest earnings. Notifications are scheduled and rendered locally on your device — no notification content is sent through our servers.</p>
+    <h2>6. Pricing</h2>
+    <p>AdMob Pulse is <strong>free</strong>. There are no in-app purchases, no subscriptions, and no paid tiers. The App is monetized solely through the advertising described in Section 4.</p>
 
-    <h2>6. Offline Use</h2>
-    <p>Cached earnings and statistics remain readable without an internet connection. An internet connection is required to refresh data from the AdMob API and to make in-app subscription purchases.</p>
+    <h2>7. Offline Use</h2>
+    <p>Cached earnings and statistics remain readable without an internet connection. An internet connection is required to refresh data from the AdMob API and to load ads.</p>
 
-    <h2>7. Children's Privacy</h2>
+    <h2>8. Children's Privacy</h2>
     <p>AdMob Pulse is a developer tool intended for app publishers and is not directed at children under the age of 13. We do not knowingly collect any personal data from children.</p>
 
-    <h2>8. Data Deletion</h2>
-    <p>Because we do not store your data on our servers, there is nothing to delete on our side. To remove all data on your device, simply uninstall the App. To revoke Google AdMob access, visit <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+    <h2>9. Data Retention and Deletion</h2>
+    <p>The data listed in Section 1 is retained by the respective third-party processors according to their own retention policies (linked above). To remove all local data, simply uninstall the App. To revoke Google AdMob access, visit <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. For analytics deletion requests, email us at the address in Section 11 and we will forward your request to the relevant processor.</p>
 
-    <h2>9. Changes to This Policy</h2>
+    <h2>10. Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. Any changes will be posted within the app and/or on this page with a new effective date.</p>
 
-    <h2>10. Contact</h2>
+    <h2>11. Contact</h2>
     <p>For any questions about this Privacy Policy, please contact us at:</p>
     <p><a href="mailto:choicy.appstore@gmail.com">choicy.appstore@gmail.com</a></p>
 
